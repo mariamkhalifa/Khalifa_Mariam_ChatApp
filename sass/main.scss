@@ -87,17 +87,6 @@ a {
 	overflow-y: scroll;
 }
 
-@media screen and (min-width: 1000px) {
-	.fa-bars {
-		display: none;
-	}
-
-	.menu {
-		display: flex;
-		flex-direction: row;
-	}
-}
-
 @import 'modules/_nameForm';
 @import 'modules/_header';
 @import 'modules/_message';
