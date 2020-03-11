@@ -1,4 +1,3 @@
-// imports always go first - if we're importing anything
 import ChatMessage from "./modules/ChatMessage.js";
 
 const socket = io();
@@ -28,24 +27,51 @@ const vm = new Vue({
         socketID: "",
         messages: [],
         message: "",
-        nickName: ""
+        name: "",
+        menu: {
+            open: false
+        },
+        nameForm: {
+            hide: false
+        }
     },
 
     methods: {
-        // catches the information the user passes in, vue is magical
+        // catches the information the user passes in
         // using two way binding
+        dispatchName() {
+            console.log('store name');
+            socket.on('chat_message', {
+                name: this.name 
+            })
+            this.nameForm.hide = true;
+        },
+
         dispatchMessage() {
-            //emit a message event and sent the message to the server
+            //emit a message event and send the message to the server
             console.log('handle send message');
             socket.emit('chat_message', {
                 content: this.message,
-                // || = shorthand for or operator (called a double pipe operator)
-                // if this.nickName is not set, put "anonymous"
-                name: this.nickName || "anonymous"
+                name: this.name || "anonymous"
             })
             // resets message after it sends
             this.message = "";
-        }  
+        },
+        
+        openMenu() {
+            console.log('open');
+            this.menu.open = (this.menu.open) ? false : true;
+        },
+
+        closeMenu() {
+            console.log('closed');
+            this.menu.open = (this.menu.open) ? false : true;
+        },
+
+        closeName() {
+            console.log('closed');
+            this.nameForm.hide = true;
+        }
     },
 
     components: {

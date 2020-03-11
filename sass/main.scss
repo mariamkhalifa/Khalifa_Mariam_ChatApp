@@ -1,72 +1,93 @@
+@import '_vars.scss';
+
 /* reset */
 * {
-	margin: 0; padding: 0; box-sizing: border-box;
+	margin: 0; padding: 0; box-sizing: border-box; border: none; list-style: none;
 }
 
 html, body { height: 100%; }
 
-body { font: 16px Helvetica, Arial; }
+body { 
+	background-color: $dark1;
+	font-family: $font;
+	color: $light1;
+	// display: flex;
+	// flex-direction: column;
+	// justify-content: flex-end;
+}
 
 main { 
 	display: flex;
-	height: 100%;
-	flex-direction: row;
-}
-.form-container, .messages { padding: 20px; }
-.form-container { 
-	flex: 1; 
-	border: 6px solid #bfcfd6;
-	background-color: #e3edf1;
-
-	label { display: block; margin-bottom: 0.5rem; }
+	flex-direction: column;
 }
 
-.messages { 
-	flex: 2;
-	background-color: #eee;
-	border: 6px solid #e2e0e0; 
+a {
+	color: $dark2;
+	text-decoration: none;
+	transition: all .5s ease;
 }
 
-input, textarea { 
-	display: block; 
-	width: 100%;
-	border: 2px solid #bfcfd6;
-	//border-color: #bfcfd6; 
-	border-radius: 4px; 
-	font-size: 0.8rem; 
-	padding: 0.4rem; 
-	border-style: solid;
+.hidden {
+	display: none;
 }
 
-textarea { height: 135px; }
-
-
-
-form {
-	//background: #000;
-	padding: 3px;
-	margin: 12px auto;
-
-	input[type=submit] { 
-		width: auto; 
-		padding: 10px; 
-		background-color: rgb(75, 200, 17);
-		margin-top: 1rem; 
-		border-radius: 8px;
-		color: white;
-		cursor: pointer;
-		text-transform: uppercase;
-		font-weight: bold;
+.form-container {
+	order: 2;
+	padding: 30px 20px;
+	display: flex;
+	flex-direction: column;
+	form {
+		display: flex;
+		justify-content: space-evenly;
 	}
 }
 
-#messages {
-	list-style-type: none; margin: 0; padding: 0;
-
-	li { padding: 5px 10px;	}
-	li:nth-child(odd) { background: #eee; }
+#textarea {
+	width: 80%;
+	padding: 8px 10px;
+	border-radius: 10px;
+	background-color: $light2;
+	max-width: 900px;
 }
 
-// imports
+::placeholder {
+	color: $dark2;
+	font-size: 1.2em;
+	font-family: $font;
+}
 
+#submit {
+	background-color: $dark1;
+	border: solid 1px $teal;
+	width: 20%;
+	max-width: 400px;
+	margin-left: 10px;
+	border-radius: 10px;
+	font-size: 1em;
+	font-family: $font-heading;
+	color: $teal;
+	font-weight: bold;
+	transition: all ease .5s;
+	cursor: pointer;
+	transition: all ease .5s;
+}
+
+#submit:hover {
+	background-color: $dark2;
+	border: none;
+	//color: $light1;
+}
+
+.messages {
+	display: flex;
+	flex-direction: column;
+	background-color: $dark2;
+	height: 67vh;
+	padding: 20px;
+	overflow-y: scroll;
+}
+
+@import 'modules/_nameForm';
+@import 'modules/_header';
 @import 'modules/_message';
+@import 'modules/_footer';
