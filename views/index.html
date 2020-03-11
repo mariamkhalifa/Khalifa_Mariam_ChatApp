@@ -2,21 +2,46 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Socket IO Chat with Node!</title>
+	<title>Lonely Wolf Chat</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/main.css">
 	<script src="https://unpkg.com/vue"></script>
+	<script src="https://kit.fontawesome.com/cfa5b23a00.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 	<main id="app">
+		<h1 class="hidden">Lonely Wolf Chat</h1>
+
+		<form class="name-form" :class="{'hide-form':nameForm.hide}">
+			<span v-on:click="closeName">X</span>
+			<label for="name">Enter your name: </label>
+			<input v-model="name" name="name" placeholder="e.g. Lonely Wolf">
+			<input @click.prevent="dispatchName" id="name-submit" type="submit" value="Start">
+		</form>
+
+		<header class="header">
+			<div class="logo">
+				<i class="fab fa-wolf-pack-battalion fa-3x"></i>
+				<h2>Lonely Wolf Chat</h2>
+			</div>
+			<i v-on:click="openMenu" class="fas fa-bars fa-2x"></i>
+			<ul class="menu" :class="{'visible':menu.open}">
+				<span v-on:click="closeMenu">X</span>
+				<li><a href="#rules">Our Rules</a></li>
+				<li><a href="#">Privacy Policy</a></li>
+			</ul>
+		</header>
+
 		<section class="form-container">
-			<label for="name">What is your name?</label>
-			<input type="text" id="name" class="name">
+			<!-- <label for="name">What is your name?</label>
+			<input type="text" id="name" class="name"> -->
 
 			<form>
-				<label for="message">Enter your message</label>
-				<textarea v-model="message" class="message" type="text" autocomplete="off" id="textarea"></textarea>
-				<input @click.prevent="dispatchMessage" type="submit">
+				<label for="message" class="hidden">Enter your message</label>
+				<textarea v-model="message" class="message" type="text" autocomplete="off" id="textarea" placeholder="Type a message..."></textarea>
+				<input @click.prevent="dispatchMessage" type="submit" id="submit" value="Send">
 			</form>
 		</section>
 
@@ -26,9 +51,16 @@
 				<newmessage :msg="message" v-for="message in messages"></newmessage>
 			</ul>
 		</section>
+	
 	</main>
+
+	<footer class="footer">
+		<p>&copy; 2020 All rights reserved.</p>
+	</footer>
+
+	
 	<script src="/socket.io/socket.io.js"></script>
-	<script type="module" src="js/main_vm.js"></script>
+	<script type="module" src="js/main.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,48 @@
+.name-form {
+    position: absolute;
+    top: 150px;
+    right: 20%;
+    left: 20%;
+    background-color: $dark1;
+    padding: 30px 0;
+    border-radius: 10px;
+    border: $light1 3px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    span {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        cursor: pointer;
+        font-family: $font-heading;
+        font-size: 1.5em;
+        color: $light2;
+    }
+    label {
+        color: $light2;
+    }
+    input {
+        width: 60%;
+    }
+}
+
+#name-submit {
+    background-color: $dark1;
+    border: $teal 1px solid;
+    color: $teal;
+    font-family: $font-heading;
+    font-size: 1.2em;
+    transition: all ease .5s;
+    cursor: pointer;
+}
+
+#name-submit:hover {
+	background-color: $dark2;
+	border: none;
+	color: $teal;
+}
+
+.hide-form {
+    display: none;
+}
