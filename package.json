@@ -1,15 +1,16 @@
 {
-  "name": "vanrys_t_chatapp",
+  "name": "khalifa_mariam_chatapp",
   "version": "1.0.0",
   "description": "social media app ",
   "main": "app.js",
   "scripts": {
-    "start": "node app"
+    "start": "nodemon app"
   },
-  "author": "TVR",
+  "author": "MK",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
+    "nodemon": "^2.0.2",
     "socket.io": "^2.3.0"
   }
 }
