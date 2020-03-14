@@ -1,6 +1,6 @@
 # Lonely Wolf Chat App
 
-<img src="images/logo.png" width="150">
+<img src="public/images/logo.png" width="150">
 
 ## Built with
 * **HTML5**
