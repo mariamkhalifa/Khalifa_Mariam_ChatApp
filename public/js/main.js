@@ -11,7 +11,7 @@ function setUserId({sID, message}) {
 }
 
 function runDisconnectMessage(packet) {
-    debugger;
+    //debugger;
     console.log(packet);
 }
 
@@ -40,7 +40,7 @@ const vm = new Vue({
         // catches the information the user passes in
         // using two way binding
         dispatchName() {
-            console.log('store name');
+            //console.log('store name');
             socket.on('chat_message', {
                 name: this.name 
             })
@@ -49,7 +49,7 @@ const vm = new Vue({
 
         dispatchMessage() {
             //emit a message event and send the message to the server
-            console.log('handle send message');
+            //console.log('handle send message');
             socket.emit('chat_message', {
                 content: this.message,
                 name: this.name || "anonymous"
